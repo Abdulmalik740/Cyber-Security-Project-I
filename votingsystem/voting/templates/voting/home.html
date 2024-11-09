@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Vote for Your Candidate</title>
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            background-color: #fff;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Vote for Your Favorite Candidate</h1>
+                <ul class="list-group">
+                    {% for candidate in candidates %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ candidate.name }}
+                            <div class="btn-group" role="group">
+                                <a href="{% url 'edit_candidate' candidate.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{% url 'delete_candidate' candidate.id %}" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">No candidates available.</li>
+                    {% endfor %}
+                </ul>
+                <div class="text-center mt-4">
+                    <a href="{% url 'vote' %}" class="btn btn-custom">Vote Now</a>
+                    <a href="{% url 'add_candidate' %}" class="btn btn-success">Add Candidate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

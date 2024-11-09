@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Results</title>
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            background-color: #fff;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .list-group-item {
+            font-size: 1.2rem;
+        }
+        .text-custom {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center text-custom mb-4">Voting Results</h1>
+                <ul class="list-group">
+                    {% for vote in votes %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ vote.candidate__name }}
+                            <span class="badge badge-primary badge-pill">{{ vote.total }} votes</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
