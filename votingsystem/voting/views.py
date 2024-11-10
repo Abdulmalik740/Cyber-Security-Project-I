@@ -3,6 +3,7 @@ from django.db import models
 from .models import Candidate, Vote
 from .forms import VoteForm
 
+# cursor.execute(f"SELECT * FROM voting_candidate WHERE name = '{user_input}'")
 def home_view(request):
     candidates = Candidate.objects.all()
     return render(request, 'voting/home.html', {'candidates': candidates})
