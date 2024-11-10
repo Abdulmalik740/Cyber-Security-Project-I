@@ -3,6 +3,12 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+"""
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')
+DEBUG = True
+ALLOWED_HOSTS = []
+"""
+
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')  # Fetch from environment variable
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Fetch from environment variable (should be False in production)
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
