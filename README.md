@@ -13,7 +13,7 @@ SQLite3 (comes with Django as the default database)
 
 # Installation
 **Clone the repository**
-git clone https://github.com/your-username/voting-system.git && cd voting-system
+git clone https://github.com/Abdulmalik740/Cyber-Security-Project-I.git && cd voting-system
 
 **Install dependencies**
 pip install -r requirements.txt
