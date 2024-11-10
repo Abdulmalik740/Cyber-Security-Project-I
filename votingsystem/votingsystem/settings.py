@@ -50,7 +50,19 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'votingsystem.urls'
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'USER': 'myuser',        # Unsafe: Hardcoded database user
+        'PASSWORD': 'mypassword',# Unsafe: Hardcoded database password
+        'HOST': 'localhost',     # Unsafe: Hardcoded host
+        'PORT': '5432',          # Unsafe: Hardcoded port
+    }
+}
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
